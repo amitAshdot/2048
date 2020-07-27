@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux';
 import Cell from './cell/Cell'
-import { build, resetBoard, setVector, move, createRandomCell } from '../store/board/actions';
+import { build, resetBoard, setVector, move } from '../store/board/actions';
 import ScoreAndTime from './scoreAndTime/ScoreAndTime'
 const Board = () => {
     const board = useSelector(state => state.boardReducer);
@@ -30,15 +30,7 @@ const Board = () => {
 
     const cellTemplate = board.board.map((row, rowIndex) =>
         row.map((cell, key) => {
-            if (!!cell) {
-                let tempStyle = null
-                if (!!board.previousBoard[rowIndex][key]) {
-                    tempStyle = board.previousBoard[rowIndex][key].position.x * 4 + board.previousBoard[rowIndex][key].position.y
-                }
-                return <Cell key={`${rowIndex}-${key}`} cell={cell} />
-            }
-            else
-                return null
+            return !!cell ? <Cell key={`${rowIndex}-${key}`} cell={cell} /> : null
         })
     )
 

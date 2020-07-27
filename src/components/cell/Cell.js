@@ -1,29 +1,23 @@
 import React, { useEffect, useState } from 'react'
-import { useSelector, useDispatch } from 'react-redux';
-
-import { build, resetBoard } from '../../store/board/actions';
-import CellWrapper from '../wrapper/CellWrapper';
-
 const Cell = (props) => {
     // const cell = useSelector(state => state.cell);
     const { cell } = props;
-    let cellClass, styleTemp
-    const dispatch = useDispatch();
+    let cellClass, styleIndex
 
     const [className, setClassName] = useState(null)
-
     const [styleName, setStyleName] = useState(null)
     useEffect(() => {
         if (cell.previousPosition)
+            //NEED TO ADD REF TO STOP THE WARNING
             cellClass = cell ? `cell cell__position--${cell.previousPosition.x}-${cell.previousPosition.y}` :
                 cell.isNew ? `cell cell__position--${cell.position.x}-${cell.position.y}` :
                     `cell cell__position--${cell.position.x}-${cell.position.y} empty`
         setClassName(cellClass)
 
-        styleTemp = cell.previousPosition ? cell.previousPosition.x * 4 + cell.previousPosition.y :
+        styleIndex = cell.previousPosition ? cell.previousPosition.x * 4 + cell.previousPosition.y :
             props.x * 4 + props.y
 
-        setStyleName(styleTemp)  // check cell class values after render (OLD POSITION)
+        setStyleName(styleIndex)  // check cell class values after render (OLD POSITION)
         return () => null
 
         // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -37,9 +31,8 @@ const Cell = (props) => {
         12: 'translate(0vw, 21vw)', 13: 'translate(7vw, 21vw)', 14: 'translate(14vw, 21vw)', 15: 'translate(21vw, 21vw)'
     }
 
-    styleTemp = setTimeout(() => {//check the index of the position (in styleMap object)
+    styleIndex = setTimeout(() => {//check index of the position (in styleMap object)
         setStyleName(cell.position.x * 4 + cell.position.y)
-
         return cell.position.x * 4 + cell.position.y
     }, 0);
 
@@ -52,12 +45,11 @@ const Cell = (props) => {
     }, 0);
 
     const animationClass = () => {
-        let temp = 'cell '
-        temp += cell.isNew ? 'cell new' : cell.isMerge ? "cell merged" : "cell"
+        let temp = cell.isNew ? 'cell new' : cell.isMerge ? "cell merged" : "cell"
         temp += ` value-${cell.value}`
 
         return temp
-    } //check if the cell was merged, new or normal
+    } //check if cell merged, new or normal
     return (
         <div className={className} style={{ transform: styleMap[styleName] }}>
             <div className={animationClass()}>

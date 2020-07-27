@@ -11,11 +11,11 @@ const cellReducer = (state = initialState, action) => {
 
     switch (action.type) {
         //------------------BUILD------------------------
-        // case settingsTypes.TIME:
-        //     return {
-        //         ...state,
-        //         time: state.time + 1
-        //     };
+        case settingsTypes.TIME:
+            return {
+                ...state,
+                time: state.time + 1
+            };
 
         default:
             return { ...state };

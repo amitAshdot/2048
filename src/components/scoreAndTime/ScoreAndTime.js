@@ -4,7 +4,7 @@ import { time } from '../../store/board/actions';
 import Output from './Output';
 
 const Settings = () => {
-    const settings = useSelector(state => state.settingsReducer);
+    // const settings = useSelector(state => state.settingsReducer);
     const board = useSelector(state => state.boardReducer);
     const dispatch = useDispatch();
 
