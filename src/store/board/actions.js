@@ -43,7 +43,7 @@ export const move = (board, vector) => {
     }
     tempBoard = createRandomCell(tempBoard)
     return {
-        type: boardTypes.MOVE,
+        type: boardTypes.SET_MOVE,
         tempBoard,
         scoreAdd,
     };
@@ -51,7 +51,7 @@ export const move = (board, vector) => {
 
 export const time = () => {
     return {
-        type: boardTypes.TIME,
+        type: boardTypes.SET_TIME,
     };
 };
 
