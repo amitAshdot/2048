@@ -1,0 +1,22 @@
+.settings {
+  width: 29vw;
+  margin-bottom: 3rem;
+
+  &__outBox {
+    display: inline-block;
+    width: 45%;
+    font-size: 3rem;
+    background: #ccc1b3;
+    margin: 0 2% 3rem;
+    padding: 1rem;
+    border-radius: 1rem;
+    line-height: 3rem;
+
+    &__title {
+      font-size: 2rem;
+    }
+    p {
+      font-weight: 900;
+    }
+  }
+}

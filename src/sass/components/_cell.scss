@@ -1,0 +1,93 @@
+.cell {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 6vw;
+  height: 6vw;
+  font-size: 3rem;
+  font-weight: 800;
+  border-radius: 3px;
+  // background: rgba(238, 228, 218, 1);
+
+  transition: all 0.1s linear;
+
+  &__position {
+    &--0-0 {
+      @include cellPosition(0vw, 0vw);
+    }
+    &--0-1 {
+      @include cellPosition(7vw, 0px);
+    }
+    &--0-2 {
+      @include cellPosition(14vw, 0px);
+    }
+    &--0-3 {
+      @include cellPosition(21vw, 0px);
+    }
+
+    &--1-0 {
+      @include cellPosition(0px, 7vw);
+    }
+    &--1-1 {
+      @include cellPosition(7vw, 7vw);
+    }
+    &--1-2 {
+      @include cellPosition(14vw, 7vw);
+    }
+    &--1-3 {
+      @include cellPosition(21vw, 7vw);
+    }
+
+    &--2-0 {
+      @include cellPosition(0px, 14vw);
+    }
+    &--2-1 {
+      @include cellPosition(7vw, 14vw);
+    }
+    &--2-2 {
+      @include cellPosition(14vw, 14vw);
+    }
+    &--2-3 {
+      @include cellPosition(21vw, 14vw);
+    }
+
+    &--3-0 {
+      @include cellPosition(0, 21vw);
+    }
+    &--3-1 {
+      @include cellPosition(7vw, 21vw);
+    }
+    &--3-2 {
+      @include cellPosition(14vw, 21vw);
+    }
+    &--3-3 {
+      @include cellPosition(21vw, 21vw);
+    }
+  }
+}
+
+.empty {
+  background: rgba(238, 228, 218, 0.35);
+}
+.value {
+  width: 6vw;
+  height: 6vw;
+  font-size: 3rem;
+  font-weight: 800;
+  border-radius: 3px;
+  // background: rgba(238, 228, 218, 1);
+
+  @include valueColor;
+  @include mergedNew;
+
+  transition: all 0.2s linear;
+}
+
+.new {
+  animation: newCell 0.5s ease-out;
+}
+
+.merged {
+  animation: merge 0.5s ease-out 0.1s;
+}

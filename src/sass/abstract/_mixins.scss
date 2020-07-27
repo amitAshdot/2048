@@ -1,0 +1,121 @@
+@mixin clearFix {
+  &::after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+@mixin valueColor {
+  &-2 {
+    background: rgba(238, 228, 218, 1);
+  }
+  &-4 {
+    background-color: rgb(237, 224, 200);
+  }
+
+  &-8 {
+    background-color: rgb(242, 177, 121);
+    color: $color-grey-light-1;
+  }
+  &-16 {
+    background-color: rgb(245, 149, 99);
+    color: $color-grey-light-1;
+  }
+  &-32 {
+    background-color: rgb(246, 124, 95);
+    color: $color-grey-light-1;
+  }
+  &-64 {
+    background-color: rgb(246, 94, 59);
+    color: $color-grey-light-1;
+  }
+  &-128 {
+    background-color: rgb(237, 207, 114);
+  }
+  &-256 {
+    background-color: rgb(237, 204, 97);
+  }
+  &-512 {
+    color: #f9f6f2;
+    background: #edc850;
+  }
+  &-1024 {
+    color: #f9f6f2;
+    background: #edc53f;
+  }
+
+  &-2048 {
+    color: #f9f6f2;
+    background: #edc22e;
+  }
+}
+
+@mixin absltCenter {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+@mixin mergedNew {
+  .new {
+    animation: newCell 0.5s ease-out 1s;
+  }
+
+  .merged {
+    animation: merge 0.5s ease-out 1s;
+  }
+}
+
+//Media query manager
+/*
+0-600px : phone
+600-900px: tablet portarit
+900-1200px: tablet landscape
+[1200-1800px]: main style
+1800px + : big desktop
+
+$breakpoint argument choices
+-phone
+-tab-port
+-tab-land
+-big-desktop
+
+
+ORDER: Base + typographyy > general layout + grid > page layout > components
+1em =16px
+*/
+
+@mixin cellPosition($x, $y) {
+  transform: translate($x, $y);
+  transition: all 0.1s linear;
+}
+
+@mixin respond($breakpoint) {
+  @if $breakpoint==phone {
+    @media only screen and (max-width: 37.5em) {
+      // 600px
+      @content;
+    }
+  }
+
+  @if $breakpoint==tab-port {
+    @media only screen and (max-width: 56.25em) {
+      // 900px
+      @content;
+    }
+  }
+
+  @if $breakpoint==tab-land {
+    @media only screen and(max-width: 75em) {
+      // 1200px
+      @content;
+    }
+  }
+
+  @if $breakpoint==big-desktop {
+    @media only screen and(min-width: 112.5em) {
+      // 1800px
+      @content;
+    }
+  }
+}

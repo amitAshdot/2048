@@ -1,0 +1,22 @@
+.App {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  min-height: 100vh;
+  justify-content: center;
+  height: 100vh;
+  background-size: cover;
+}
+.board {
+  width: 29vw;
+  height: 29vw;
+  background: #bbada0;
+  position: relative;
+  padding: 1vw;
+
+  &__board {
+    margin-bottom: 15px;
+  }
+}
