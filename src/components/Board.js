@@ -2,8 +2,6 @@ import React, { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux';
 import Cell from './cell/Cell'
 import { build, resetBoard, setVector, move, createRandomCell } from '../store/board/actions';
-import { CSSTransitionGroup } from 'react-transition-group' // ES6
-
 import ScoreAndTime from './scoreAndTime/ScoreAndTime'
 const Board = () => {
     const board = useSelector(state => state.boardReducer);
