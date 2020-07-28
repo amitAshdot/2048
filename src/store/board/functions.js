@@ -172,9 +172,7 @@ export const rearrange = (mat, isRow, ascending, scoreAdd) => {
 
 
 export const checkMoves = (mat) => {
-    var flag = false
-
-
+    let flag = false
     for (let i = 0; i < mat.length; i++) {
         for (let j = 0; j < mat.length; j++) {
             try {

@@ -1,0 +1,17 @@
+.primary-Btn {
+  background: $color-primary;
+  color: $color-grey-light-1;
+  font-size: 2rem;
+  margin-top: 2rem;
+  padding: 1.5rem 2.5rem;
+  border-radius: 1rem;
+  border: 0px;
+  font-weight: 900;
+  letter-spacing: 2px;
+  transition: all 0.2s;
+
+  &:hover {
+    background: #c5b4a4;
+    transform: scale(1.1);
+  }
+}
