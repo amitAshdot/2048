@@ -1,5 +1,5 @@
 import { boardTypes } from './types';
-import { resetBoard, createRandomCell, getVector, rearrange, setPreviousPosition, setMerged, getAllAvailableCells } from './functions'
+import { resetBoard, createRandomCell, getVector, rearrange, setPreviousPosition, setMerged, getAllAvailableCells, checkMoves } from './functions'
 //----------//--------ACTIONS----------//--------------
 //------------------EXPORT------------------------
 export const build = () => {
@@ -25,7 +25,7 @@ export const setVector = (e) => {
 export const move = (board, vector) => {
     let scoreAdd = { value: 0 };
     let tempBoard = JSON.parse(JSON.stringify(board)); // DEEP COPY OF MATRIX
-
+    let moveAvailable = null
     tempBoard = setPreviousPosition(board)
     tempBoard = setMerged(tempBoard, false)
 
@@ -43,21 +43,41 @@ export const move = (board, vector) => {
     else if (vector.y > 0) {//left
         tempBoard = rearrange(tempBoard, true, true, scoreAdd)
     }
-
     const availableCells = getAllAvailableCells(board)
     if (availableCells !== undefined && availableCells.length !== 0) {
         tempBoard = createRandomCell(tempBoard)
     }
+    debugger
+    if (availableCells)
+        moveAvailable = checkMoves(board)
+
     return {
         type: boardTypes.SET_MOVE,
         tempBoard,
         scoreAdd,
+        moveAvailable
     };
 };
 
 export const time = () => {
     return {
         type: boardTypes.SET_TIME,
+    };
+};
+
+export const end = () => {
+    return {
+        type: boardTypes.END,
+    };
+};
+
+export const startOver = () => {
+    const temp = build()
+    const board = temp.board
+
+    return {
+        type: boardTypes.START_OVER,
+        board
     };
 };
 

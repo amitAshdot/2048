@@ -169,3 +169,97 @@ export const rearrange = (mat, isRow, ascending, scoreAdd) => {
     }
     return tempMat
 }
+
+
+export const checkMoves = (mat) => {
+    var flag = false
+
+
+    for (let i = 0; i < mat.length; i++) {
+        for (let j = 0; j < mat.length; j++) {
+            try {
+                if (!!mat[i][j]) {
+                    if (i === 0) { // if first row
+                        if (j === 0) { // top left corner
+                            if (mat[i][j + 1] === null || mat[i + 1][j] === null)
+                                flag = true
+                            else if (mat[i][j].value === mat[i][j + 1].value || mat[i][j].value === mat[i + 1][j].value)
+                                flag = true
+
+                        }
+                        else if (j === mat.length - 1) { // top right corner
+                            if (mat[i][j - 1] === null || mat[i + 1][j] === null)
+                                flag = true
+                            else if (mat[i][j].value === mat[i][j - 1].value || mat[i][j].value === mat[i + 1][j].value)
+                                flag = true
+                        }
+                        else {
+                            if (mat[i][j - 1] === null || mat[i + 1][j] === null || mat[i][j + 1] === null)
+                                flag = true
+                            else if (mat[i][j].value === mat[i][j - 1].value ||
+                                mat[i][j].value === mat[i + 1][j].value ||
+                                mat[i][j].value === mat[i][j + 1].value)
+                                flag = true
+                        }
+                    }
+                    else if (i === mat.length - 1) { // if last row
+                        if (j === 0) { // buttom left corner
+                            if (mat[i][j + 1] === null || mat[i - 1][j] === null)
+                                flag = true
+                            else if (mat[i][j].value === mat[i][j + 1].value || mat[i][j].value === mat[i - 1][j].value)
+                                flag = true
+                        }
+                        else if (j === mat.length - 1) {// buttom right corner
+                            if (mat[i][j - 1] === null || mat[i - 1][j] === null)
+                                flag = true
+                            else if (mat[i][j].value === mat[i][j - 1].value || mat[i][j].value === mat[i - 1][j].value)
+                                flag = true
+                        }
+                        else {
+                            if (mat[i][j - 1] === null || mat[i - 1][j] === null || mat[i][j + 1] === null)
+                                flag = true
+
+                            else if (mat[i][j].value === mat[i][j - 1].value ||
+                                mat[i][j].value === mat[i - 1][j].value ||
+                                mat[i][j].value === mat[i][j + 1].value)
+                                flag = true
+                        }
+                    }
+                    else if (j === 0) { // left column
+                        if (j === 0) { // buttom left corner
+                            if (mat[i][j].value === mat[i][j + 1].value ||
+                                mat[i][j].value === mat[i - 1][j].value ||
+                                mat[i][j].value === mat[i + 1][j].value)
+                                flag = true
+
+                            else if (mat[i][j].value === mat[i][j + 1].value ||
+                                mat[i][j].value === mat[i - 1][j].value ||
+                                mat[i][j].value === mat[i + 1][j].value)
+                                flag = true
+                        }
+                    }
+                    else if (j === mat.length - 1) { //right column
+                        if (mat[i][j - 1] === null || mat[i - 1][j] === null || mat[i + 1][j] === null)
+                            flag = true
+                        else if (mat[i][j].value === mat[i][j - 1].value || mat[i][j].value === mat[i - 1][j].value || mat[i][j].value === mat[i + 1][j].value)
+                            flag = true
+                    }// middle matrix
+                    else {
+                        if (mat[i][j - 1] === null || mat[i + 1][j] === null || mat[i][j + 1] === null || mat[i - 1][j] === null)
+
+                            flag = true
+                        else if (mat[i][j].value === mat[i][j + 1].value ||
+                            mat[i][j].value === mat[i][j - 1].value ||
+                            mat[i][j].value === mat[i - 1][j].value ||
+                            mat[i][j].value === mat[i + 1][j].value)
+                            flag = true
+                    }
+                }
+            } catch (error) {
+                //
+            }
+        }
+    }
+    return flag;
+
+}

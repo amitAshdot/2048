@@ -35,13 +35,32 @@ const cellReducer = (state = initialState, action) => {
                 ...state,
                 previousBoard: state.board,
                 board: action.tempBoard,
-                score: state.score + action.scoreAdd.value
+                score: state.score + action.scoreAdd.value,
+                finish: !action.moveAvailable
             };
 
         case boardTypes.SET_TIME:
             return {
                 ...state,
                 time: state.time + 1
+            };
+
+        case boardTypes.END:
+            return {
+                ...state,
+                finish: true
+            };
+
+
+        case boardTypes.START_OVER:
+            return {
+                ...state,
+                board: action.board,
+                previousBoard: [],
+                vector: { x: 0, y: 0 },
+                score: 0,
+                time: 0,
+                finish: false
             };
         default:
             return { ...state };

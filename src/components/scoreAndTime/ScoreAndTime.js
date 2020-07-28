@@ -10,13 +10,14 @@ const Settings = () => {
 
     useEffect(() => {
         let interval = null;
-        // if (!settings.pause && !board.pause)
-        interval = setInterval(() => {
-            dispatch(time());
-        }, 1000);
+        if (!board.finish) {
+            interval = setInterval(() => {
+                dispatch(time());
+            }, 1000);
+        }
         return () => clearInterval(interval);
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [])
+    }, [board.finish])
     return (
         <div className="settings">
             <Output out={board.time} class={'time'} />
