@@ -25,10 +25,10 @@ const Cell = (props) => {
     }, [props])
 
     const styleMap = {
-        0: 'translate(0px, 0px)', 1: 'translate(7vw, 0px)', 2: 'translate(14vw, 0px)', 3: 'translate(21vw, 0px)',
-        4: 'translate(0px, 7vw)', 5: 'translate(7vw, 7vw)', 6: 'translate(14vw, 7vw)', 7: 'translate(21vw, 7vw)',
-        8: 'translate(0px, 14vw)', 9: 'translate(7vw, 14vw)', 10: 'translate(14vw, 14vw)', 11: 'translate(21vw, 14vw)',
-        12: 'translate(0vw, 21vw)', 13: 'translate(7vw, 21vw)', 14: 'translate(14vw, 21vw)', 15: 'translate(21vw, 21vw)'
+        0: 'translate(0px, 0px)', 1: 'translate(12rem, 0px)', 2: 'translate(24rem, 0px)', 3: 'translate(36rem, 0px)',
+        4: 'translate(0px, 12rem)', 5: 'translate(12rem, 12rem)', 6: 'translate(24rem, 12rem)', 7: 'translate(36rem, 12rem)',
+        8: 'translate(0px, 24rem)', 9: 'translate(12rem, 24rem)', 10: 'translate(24rem, 24rem)', 11: 'translate(36rem, 24rem)',
+        12: 'translate(0, 36rem)', 13: 'translate(12rem, 36rem)', 14: 'translate(24rem, 36rem)', 15: 'translate(36rem, 36rem)'
     }
 
     styleIndex = setTimeout(() => {//check index of the position (in styleMap object)

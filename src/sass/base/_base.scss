@@ -18,11 +18,11 @@ html {
   }
 
   @include respond(tab-land) {
-    font-size: 56.25%; // 1rem = 9px, 9 / 16 = 56.25%
+    font-size: 44%;
   }
 
   @include respond(tab-port) {
-    font-size: 50%; // 1rem = 8px, 8 / 16 = 50%
+    font-size: 44%;
   }
 
   //no need since both phone and tablet-prt 50%

@@ -10,13 +10,18 @@
   background-size: cover;
 }
 .board {
-  width: 29vw;
-  height: 29vw;
+  width: 28vw;
+  height: 28vw;
   background: #bbada0;
   position: relative;
-  padding: 1vw;
+  padding: 1.6rem;
 
   &__board {
     margin-bottom: 15px;
+  }
+
+  @media only screen and (max-width: 56.25em) {
+    width: 50rem;
+    height: 50rem;
   }
 }

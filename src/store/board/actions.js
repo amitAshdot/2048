@@ -47,7 +47,6 @@ export const move = (board, vector) => {
     if (availableCells !== undefined && availableCells.length !== 0) {
         tempBoard = createRandomCell(tempBoard)
     }
-    debugger
     if (availableCells)
         moveAvailable = checkMoves(board)
 

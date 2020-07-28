@@ -9,7 +9,6 @@ const EndScreen = () => {
     const dispatch = useDispatch();
 
     const handleClick = () => {
-        debugger
         dispatch(startOver())
     }
     return (
