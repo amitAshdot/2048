@@ -12,7 +12,7 @@ const Board = () => {
     useEffect(() => {
         dispatch(build())
         document.addEventListener("keydown", handleMove, false);
-        return () => null
+        return () => window.removeEventListener('keydown', handleMove)
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
